@@ -124,11 +124,11 @@ public class Theia extends BasePlanet {
                         .endFeature()
                         .feature(TerrainPreset.SHIELD_VOLCANOES)
                         .width(2)
-                        .height(8)
+                        .height(16)
                         .endFeature()
                         .build(),
                     8,
-                    41),
+                    56),
                 1,
                 0)
             .biome(
@@ -143,11 +143,11 @@ public class Theia extends BasePlanet {
                         .endFeature()
                         .feature(TerrainPreset.SHIELD_VOLCANOES)
                         .width(4)
-                        .height(32)
+                        .height(64)
                         .endFeature()
                         .build(),
                     8,
-                    41),
+                    56),
                 1,
                 1)
             .name(ENUM)
@@ -218,7 +218,8 @@ public class Theia extends BasePlanet {
                 new WorldGenCrater(
                     craterRarity,
                     new BlockMeta[] { GalaxiaBlock.get(DimensionEnum.THEIA, BlockVariant.REGOLITH),
-                        GalaxiaBlock.get(DimensionEnum.THEIA, BlockVariant.BASALT) }))
+                        GalaxiaBlock.get(DimensionEnum.THEIA, BlockVariant.BASALT) },
+                    GalaxiaBlock.get(DimensionEnum.THEIA, BlockVariant.TEKTITE)))
             .terrain(terrainConfiguration)
             .ocean(
                 GalaxiaBlock.get(DimensionEnum.THEIA, BlockVariant.OBSIDIAN),

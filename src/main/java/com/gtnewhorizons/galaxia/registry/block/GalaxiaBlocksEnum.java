@@ -76,9 +76,11 @@ public enum GalaxiaBlocksEnum {
         reg(DimensionEnum.HEMATERIA,
             BlockVariant.REGOLITH,
             BlockVariant.ANDESITE,
+            BlockVariant.GABBRO,
             BlockVariant.SNOW,
             BlockVariant.ICE,
-            BlockVariant.MAGMA);
+            BlockVariant.MAGMA,
+            sandLike("rhyolite", 0.7F));
 
         // FROZEN_BELT
         reg(DimensionEnum.FROZEN_BELT,
