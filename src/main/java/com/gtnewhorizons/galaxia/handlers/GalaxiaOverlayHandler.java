@@ -3,7 +3,6 @@ package com.gtnewhorizons.galaxia.handlers;
 import static com.gtnewhorizons.galaxia.utility.GalaxiaAPI.getPlayerOxygenLevel;
 import static com.gtnewhorizons.galaxia.utility.GalaxiaAPI.getPlayerTemperature;
 
-import com.gtnewhorizons.galaxia.utility.EnumColors;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;
@@ -18,6 +17,7 @@ import com.github.bsideup.jabel.Desugar;
 import com.gtnewhorizons.galaxia.client.EnumTextures;
 import com.gtnewhorizons.galaxia.client.HazardWarningClient;
 import com.gtnewhorizons.galaxia.core.config.ConfigOverlay;
+import com.gtnewhorizons.galaxia.utility.EnumColors;
 import com.gtnewhorizons.galaxia.utility.GalaxiaAPI;
 import com.gtnewhorizons.galaxia.utility.hazards.HazardWarnings;
 
