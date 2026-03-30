@@ -28,14 +28,17 @@ public class DimensionEventHandler {
     public int counter;
 
     private List<HazardWarnings> batchedWarnings;
-    private List<HazardWarnings> backBuffer;
 
-    private static final List<EnvironmentalHazard> ENVIRONMENTAL_HAZARDS = Arrays.asList(
-        new HazardTemperature(),
-        new HazardSpores(),
-        new HazardOxygen(),
-        new HazardWithering(),
-        new HazardPressure());
+    private static final List<EnvironmentalHazard> ENVIRONMENTAL_HAZARDS;
+
+    static {
+        ENVIRONMENTAL_HAZARDS = Arrays.asList(
+            new HazardTemperature(),
+            new HazardSpores(),
+            new HazardOxygen(),
+            new HazardWithering(),
+            new HazardPressure());
+    }
 
     public DimensionEventHandler() {
         this.counter = 0;
@@ -67,7 +70,7 @@ public class DimensionEventHandler {
 
     /**
      * Clear warnings when changing dimensions
-     * 
+     *
      * @param event
      */
     @SubscribeEvent
@@ -80,7 +83,7 @@ public class DimensionEventHandler {
 
     /**
      * Clear warnings when respawning
-     * 
+     *
      * @param event
      */
     @SubscribeEvent
