@@ -1,5 +1,7 @@
 package com.gtnewhorizons.galaxia.core;
 
+import com.gtnewhorizons.galaxia.core.network.HazardWarningPacket;
+import com.gtnewhorizons.galaxia.utility.hazards.HazardWarnings;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
@@ -82,6 +84,7 @@ public final class Galaxia {
         GALAXIA_NETWORK.registerMessage(TeleportRequestPacket.Handler.class, TeleportRequestPacket.class, id++,
                 Side.SERVER);
         GALAXIA_NETWORK.registerMessage(OxygenSyncPacket.Handler.class, OxygenSyncPacket.class, id++, Side.CLIENT);
+        GALAXIA_NETWORK.registerMessage(HazardWarningPacket.Handler.class, HazardWarningPacket.class, id++, Side.CLIENT);
         GALAXIA_NETWORK.registerMessage(DestinationSetPacket.Handler.class, DestinationSetPacket.class, id++,
                 Side.SERVER);
     }
