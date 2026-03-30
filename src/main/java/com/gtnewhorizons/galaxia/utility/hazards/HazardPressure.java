@@ -34,8 +34,8 @@ public class HazardPressure extends EnvironmentalHazard {
         if (player.isPotionActive(Potion.moveSlowdown)) return HazardWarnings.LOW_PRESSURE;
         if (player.isPotionActive(Potion.digSlowdown)) return HazardWarnings.LOW_PRESSURE;
 
-        player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, BASE_EFFECT_DURATION, 1));
-        player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, BASE_EFFECT_DURATION, 1));
+        player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, BASE_EFFECT_DURATION * 2, 1));
+        player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, BASE_EFFECT_DURATION * 2, 1));
         return HazardWarnings.LOW_PRESSURE;
     }
 }
