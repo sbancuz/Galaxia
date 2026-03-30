@@ -40,7 +40,6 @@ public class HazardTemperature extends EnvironmentalHazard {
         this.acceptableMaxTemp += heatProtection;
         this.acceptableMinTemp -= coldProtection;
 
-        System.out.println(temp);
         if (temp < this.acceptableMaxTemp && temp > this.acceptableMinTemp) return null;
         if (temp < this.acceptableMinTemp) {
             return applyFreeze(player, temp);
