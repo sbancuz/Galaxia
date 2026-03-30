@@ -1,6 +1,5 @@
 package com.gtnewhorizons.galaxia.core.network;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.gtnewhorizons.galaxia.client.HazardWarningClient;
@@ -37,9 +36,7 @@ public class HazardWarningPacket implements IMessage {
         int enumSize = HazardWarnings.values().length;
 
         if (enumSize > maxBits) {
-            throw new IllegalStateException(
-                "Too many HazardWarnings (" + enumSize + "), max supported is " + maxBits
-            );
+            throw new IllegalStateException("Too many HazardWarnings (" + enumSize + "), max supported is " + maxBits);
         }
     }
 

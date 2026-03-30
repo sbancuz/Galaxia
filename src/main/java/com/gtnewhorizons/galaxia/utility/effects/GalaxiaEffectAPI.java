@@ -12,7 +12,7 @@ public class GalaxiaEffectAPI {
 
         int amp = -1;
         if (lowOxygen != null) amp = Math.max(amp, lowOxygen.getAmplifier());
-        if (freezing!= null) amp = Math.max(amp, freezing.getAmplifier());
+        if (freezing != null) amp = Math.max(amp, freezing.getAmplifier());
         if (overheating != null) amp = Math.max(amp, overheating.getAmplifier());
 
         return amp >= 0 ? oxygenSpeedMultiplier(amp) : 1f;

@@ -6,18 +6,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.gtnewhorizons.galaxia.core.Galaxia;
-import com.gtnewhorizons.galaxia.core.network.HazardWarningPacket;
-import cpw.mods.fml.common.gameevent.PlayerEvent;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 
+import com.gtnewhorizons.galaxia.core.Galaxia;
+import com.gtnewhorizons.galaxia.core.network.HazardWarningPacket;
 import com.gtnewhorizons.galaxia.registry.dimension.SolarSystemRegistry;
 import com.gtnewhorizons.galaxia.registry.dimension.builder.EffectBuilder;
 import com.gtnewhorizons.galaxia.utility.hazards.*;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 
 /**
@@ -67,30 +67,26 @@ public class DimensionEventHandler {
 
     /**
      * Clear warnings when changing dimensions
+     * 
      * @param event
      */
     @SubscribeEvent
     public void onPlayerChangeDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
         EntityPlayerMP player = (EntityPlayerMP) event.player;
         if (!isInGalaxiaDimension(player)) {
-            Galaxia.GALAXIA_NETWORK.sendTo(
-                new HazardWarningPacket(new ArrayList<>()),
-                player
-            );
+            Galaxia.GALAXIA_NETWORK.sendTo(new HazardWarningPacket(new ArrayList<>()), player);
         }
     }
 
     /**
      * Clear warnings when respawning
+     * 
      * @param event
      */
     @SubscribeEvent
     public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
         EntityPlayerMP player = (EntityPlayerMP) event.player;
-        Galaxia.GALAXIA_NETWORK.sendTo(
-            new HazardWarningPacket(new ArrayList<>()),
-            player
-        );
+        Galaxia.GALAXIA_NETWORK.sendTo(new HazardWarningPacket(new ArrayList<>()), player);
     }
 
     /**

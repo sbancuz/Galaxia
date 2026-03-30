@@ -1,7 +1,5 @@
 package com.gtnewhorizons.galaxia.core;
 
-import com.gtnewhorizons.galaxia.core.network.HazardWarningPacket;
-import com.gtnewhorizons.galaxia.utility.hazards.HazardWarnings;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
@@ -10,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.gtnewhorizons.galaxia.Tags;
 import com.gtnewhorizons.galaxia.core.network.DestinationSetPacket;
+import com.gtnewhorizons.galaxia.core.network.HazardWarningPacket;
 import com.gtnewhorizons.galaxia.core.network.OxygenSyncPacket;
 import com.gtnewhorizons.galaxia.core.network.TeleportRequestPacket;
 import com.gtnewhorizons.galaxia.registry.items.GalaxiaItemList;

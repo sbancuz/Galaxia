@@ -2,7 +2,6 @@ package com.gtnewhorizons.galaxia.utility.hazards;
 
 import static com.gtnewhorizons.galaxia.utility.GalaxiaAPI.hasWitherProtection;
 
-import akka.japi.pf.FI;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;

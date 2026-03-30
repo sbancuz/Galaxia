@@ -3,8 +3,6 @@ package com.gtnewhorizons.galaxia.handlers;
 import static com.gtnewhorizons.galaxia.utility.GalaxiaAPI.getPlayerOxygenLevel;
 import static com.gtnewhorizons.galaxia.utility.GalaxiaAPI.getPlayerTemperature;
 
-import java.util.List;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;
@@ -105,8 +103,7 @@ public class GalaxiaOverlayHandler {
 
                 int baseX = 10 + ConfigOverlay.ConfigOverlayGlobal.hudOffsetX
                     + ConfigOverlay.ConfigOverlayHazards.hazardOffsetX;
-                int baseY = (screenHeight - ABOVE_HOTBAR_BASE_Y - 20)
-                    + ConfigOverlay.ConfigOverlayGlobal.hudOffsetY
+                int baseY = (screenHeight - ABOVE_HOTBAR_BASE_Y - 20) + ConfigOverlay.ConfigOverlayGlobal.hudOffsetY
                     + ConfigOverlay.ConfigOverlayHazards.hazardOffsetY;
 
                 float scale = (float) ConfigOverlay.ConfigOverlayHazards.hazardScale;

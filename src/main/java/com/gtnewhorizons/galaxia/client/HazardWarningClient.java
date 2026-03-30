@@ -1,13 +1,11 @@
 package com.gtnewhorizons.galaxia.client;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.NoSuchElementException;
 
-import com.gtnewhorizons.galaxia.utility.hazards.HazardWarnings;
 import org.jetbrains.annotations.NotNull;
 
+import com.gtnewhorizons.galaxia.utility.hazards.HazardWarnings;
 
 public class HazardWarningClient {
 
