@@ -251,7 +251,18 @@ galaxia.tooltip.rocket_silo.builder.enter_rocket=Add some modules first
 # Elements - Other - "Effect"
 galaxia.effect.low_oxygen=Low Oxygen
 galaxia.effect.overheating=Overheating
-galaxia.effect.overcooling=Freezing
+galaxia.effect.freezing=Freezing
+
+# Elements - Other - "Hazards"
+galaxia.hazard.fine=No warnings
+galaxia.hazard.freezing=Freezing
+galaxia.hazard.burning=Burning
+galaxia.hazard.low_pressure=Low Pressure
+galaxia.hazard.high_radiation=High Radiation
+galaxia.hazard.spores=Spores Detected
+galaxia.hazard.wither=Withering
+galaxia.hazard.low_oxygen=Low Oxygen
+galaxia.hazard.no_oxygen=Oxygen Depleted
 
 # Elements - Other - "Death Messages"
 death.attack.galaxia.temperature=%1$s succumbed to extreme temperature
