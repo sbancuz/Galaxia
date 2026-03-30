@@ -3,6 +3,7 @@ package com.gtnewhorizons.galaxia.handlers;
 import static com.gtnewhorizons.galaxia.utility.GalaxiaAPI.getPlayerOxygenLevel;
 import static com.gtnewhorizons.galaxia.utility.GalaxiaAPI.getPlayerTemperature;
 
+import com.gtnewhorizons.galaxia.utility.EnumColors;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;
@@ -120,7 +121,7 @@ public class GalaxiaOverlayHandler {
                 int y = (int) (baseY / scale);
 
                 for (HazardWarnings warning : HazardWarningClient.iterable()) {
-                    fr.drawStringWithShadow(warning.message, x, y, 0xFF4444);
+                    fr.drawStringWithShadow(warning.message, x, y, EnumColors.Warning.getColor());
                     y += fr.FONT_HEIGHT + 4;
                 }
 
