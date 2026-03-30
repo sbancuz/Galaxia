@@ -14,7 +14,13 @@ import com.gtnewhorizons.galaxia.core.Galaxia;
 import com.gtnewhorizons.galaxia.core.network.HazardWarningPacket;
 import com.gtnewhorizons.galaxia.registry.dimension.SolarSystemRegistry;
 import com.gtnewhorizons.galaxia.registry.dimension.builder.EffectBuilder;
-import com.gtnewhorizons.galaxia.utility.hazards.*;
+import com.gtnewhorizons.galaxia.utility.hazards.EnvironmentalHazard;
+import com.gtnewhorizons.galaxia.utility.hazards.HazardOxygen;
+import com.gtnewhorizons.galaxia.utility.hazards.HazardPressure;
+import com.gtnewhorizons.galaxia.utility.hazards.HazardSpores;
+import com.gtnewhorizons.galaxia.utility.hazards.HazardTemperature;
+import com.gtnewhorizons.galaxia.utility.hazards.HazardWarnings;
+import com.gtnewhorizons.galaxia.utility.hazards.HazardWithering;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
