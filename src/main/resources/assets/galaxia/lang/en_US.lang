@@ -341,7 +341,12 @@ galaxia.config.overlay.texture.temperature_bar_height.tooltip=Temperature bar te
 galaxia.config.category.overlay_hazard=Hazard Warning Overlay
 galaxia.config.category.overlay_hazard.tooltip=Overlay setting for the environmental hazard warnings
 galaxia.config.category.show_hazard_warnings=Show Warnings
+galaxia.config.category.show_hazard_warnings.tooltip=Make the overlay show environmental hazard warnings
 galaxia.config.category.hazard_horizontal_offset=Horizontal Offset
+galaxia.config.category.hazard_horizontal_offset.tooltip=Horizontal offset from the left\positive = right
 galaxia.config.category.hazard_vertical_offset=Vertical Offset
+galaxia.config.category.hazard_vertical_offset.tooltip=Vertical offset from the center\npositive = down
 galaxia.config.category.hazard_scale=Pulse Scaling Coefficient
+galaxia.config.category.hazard_scale.tooltip=How much to scale the warnings when pulsing
 galaxia.config.category.hazard_pulse=Enable Pulse
+galaxia.config.category.hazard_pulse.tooltip=Enable pulse animation
