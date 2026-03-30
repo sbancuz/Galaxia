@@ -1,28 +1,21 @@
 package com.gtnewhorizons.galaxia.handlers;
 
-import static com.gtnewhorizons.galaxia.utility.GalaxiaAPI.checkOxygenAndDrain;
-import static com.gtnewhorizons.galaxia.utility.GalaxiaAPI.getPlayerOxygenLevel;
-import static com.gtnewhorizons.galaxia.utility.GalaxiaAPI.getPressureProtection;
-import static com.gtnewhorizons.galaxia.utility.GalaxiaAPI.getRadiationProtection;
-import static com.gtnewhorizons.galaxia.utility.GalaxiaAPI.getThermalProtection;
-import static com.gtnewhorizons.galaxia.utility.GalaxiaAPI.hasOxygenmask;
-import static com.gtnewhorizons.galaxia.utility.GalaxiaAPI.hasSporeFilter;
-import static com.gtnewhorizons.galaxia.utility.GalaxiaAPI.hasWitherProtection;
 import static com.gtnewhorizons.galaxia.utility.GalaxiaAPI.isInGalaxiaDimension;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
+import com.gtnewhorizons.galaxia.core.Galaxia;
+import com.gtnewhorizons.galaxia.core.network.HazardWarningPacket;
+import cpw.mods.fml.common.gameevent.PlayerEvent;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.DamageSource;
 
 import com.gtnewhorizons.galaxia.registry.dimension.SolarSystemRegistry;
 import com.gtnewhorizons.galaxia.registry.dimension.builder.EffectBuilder;
-import com.gtnewhorizons.galaxia.utility.effects.GalaxiaEffects;
+import com.gtnewhorizons.galaxia.utility.hazards.*;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
@@ -33,18 +26,20 @@ import cpw.mods.fml.common.gameevent.TickEvent;
 public class DimensionEventHandler {
 
     public int counter;
-    public final int BASE_EFFECT_DURATION = 40;
-    int lowOxygenDuration = 0; // defines duration of player being low on oxygen in SECONDS
 
-    DamageSource temperature = new DamageSource("galaxia.temperature").setDamageBypassesArmor()
-        .setMagicDamage();
-    DamageSource noOxygen = new DamageSource("galaxia.noOxygen").setDamageBypassesArmor()
-        .setMagicDamage();
-    DamageSource radiation = new DamageSource("galaxia.radiation").setDamageBypassesArmor()
-        .setMagicDamage();
+    private List<HazardWarnings> batchedWarnings;
+    private List<HazardWarnings> backBuffer;
+
+    private static final List<EnvironmentalHazard> ENVIRONMENTAL_HAZARDS = Arrays.asList(
+        new HazardTemperature(),
+        new HazardSpores(),
+        new HazardOxygen(),
+        new HazardWithering(),
+        new HazardPressure());
 
     public DimensionEventHandler() {
         this.counter = 0;
+        this.batchedWarnings = new ArrayList<>();
     }
 
     /**
@@ -77,36 +72,13 @@ public class DimensionEventHandler {
      * @param player The player entity
      */
     private void applyEffects(EffectBuilder def, EntityPlayer player) {
-        applyTemperature(def, player);
-
-        // Pressure Handling
-        applyPressure(def, player);
-
-        // Oxygen Handling
-        applyLowOxygen(def, player);
-
-        // Radiation Handling
-        applyRadiation(def, player);
-
-        // Wither Handling
-        applyWithering(def, player);
-
-        // Spores Handling
-        applySpores(def, player);
-    }
-
-    /**
-     * Applies wither where needed
-     *
-     * @param def    The EffectDef holding the dimensional effects
-     * @param player The player entity
-     */
-    private void applyWithering(EffectBuilder def, EntityPlayer player) {
-        if (!def.getWithering(player)) return;
-        if (hasWitherProtection(player)) return;
-        if (player.isPotionActive(Potion.wither)) return;
-        player.addPotionEffect(new PotionEffect(Potion.wither.id, BASE_EFFECT_DURATION, 1));
-    }
+        this.batchedWarnings.clear();
+        for (EnvironmentalHazard h : ENVIRONMENTAL_HAZARDS) {
+            HazardWarnings w = h.apply(def, player);
+            if (w != HazardWarnings.FINE) {
+                batchedWarnings.add(w);
+            }
+        }
 
     /**
      * Applies the "Spore" effect to the player - a random negative effect on player
