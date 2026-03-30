@@ -336,3 +336,12 @@ galaxia.config.overlay.texture.temperature_bar_width=Temperature bar texture wid
 galaxia.config.overlay.texture.temperature_bar_width.tooltip=Temperature bar texture width in pixels
 galaxia.config.overlay.texture.temperature_bar_height=Temperature bar texture height
 galaxia.config.overlay.texture.temperature_bar_height.tooltip=Temperature bar texture height in pixels
+
+# Config - Overlay - "Warnings"
+galaxia.config.category.overlay_hazard=Hazard Warning Overlay
+galaxia.config.category.overlay_hazard.tooltip=Overlay setting for the environmental hazard warnings
+galaxia.config.category.show_hazard_warnings=Show Warnings
+galaxia.config.category.hazard_horizontal_offset=Horizontal Offset
+galaxia.config.category.hazard_vertical_offset=Vertical Offset
+galaxia.config.category.hazard_scale=Pulse Scaling Coefficient
+galaxia.config.category.hazard_pulse=Enable Pulse
