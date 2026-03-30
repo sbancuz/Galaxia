@@ -33,9 +33,8 @@ public class GalaxiaOverlayHandler {
     private static final int ABOVE_HOTBAR_BASE_Y = 49; // screenHeight - 49
 
     @SubscribeEvent
-    public void onRenderOverlay(RenderGameOverlayEvent.Post event) {
+    public void onRenderHUD(RenderGameOverlayEvent.Post event) {
         if (event.type != RenderGameOverlayEvent.ElementType.ALL) return;
-        if (mc.currentScreen != null) return;
 
         EntityPlayer player = mc.thePlayer;
         if (player == null) return;
